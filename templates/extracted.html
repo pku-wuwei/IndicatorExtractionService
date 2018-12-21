@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shannon.AI Info Extractor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/app.css">
+</head>
+<body class="box">
+<nav class="navbar navbar-light bg-faded">
+    <a class="navbar-brand" href="/upload" title="Shannon.AI">
+        <img class="navbar-img" src="../static/img/logo.png" alt="Shannon.AI Info Extractor">
+        <!-- <div class="navbar-title"></div> -->
+    </a>
+</nav>
+<div class="container-fluid">
+    <div class="main">
+        <div class="row">
+            <div class="col-sm">
+                <table>
+                <tbody class="table table-hover info">
+                    <h3> 抽取结果： </h3>
+                    <tr>
+                        {% for k in context[0].keys() %}
+                            <th scope="col">{{ k }}</th>
+                        {% endfor %}
+                    </tr>
+                    {% for item in context %}
+                        <tr>
+                        {% for k, v in item.items() %}
+                            <td> {{ v }}</td>
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="../static/js/jquery-3.1.1.slim.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+</body>
+</html>

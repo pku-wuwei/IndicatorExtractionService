@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shannon.AI Info Extractor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/app.css">
+</head>
+<body class="box">
+<nav class="navbar navbar-light bg-faded">
+    <a class="navbar-brand" href="/upload" title="Shannon.AI">
+        <img class="navbar-img" src="../static/img/logo.png" alt="Shannon.AI Info Extractor">
+        <!-- <div class="navbar-title"></div> -->
+    </a>
+</nav>
+<div class="container-fluid">
+    <div class="main">
+        <div class="row">
+            <div class="col-sm">
+                <div class="jumbotron upload">
+                    <h2>上传文件...</h2>
+                    <form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" name="pdf_file" class="custom-file-input" id="input-file"  onchange="loadFile(this.files[0])">
+                                <label class="custom-file-label" for="input-group-file" id="file-label">Choose file</label>
+                            </div>
+                            <div class="input-group-append">
+                                <button type="submit" value="submit" class="btn btn-outline-secondary" id="jqueryfile">Upload</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../static/js/jquery-3.1.1.slim.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script>
+    function loadFile(file) {
+        $("#file-label").html(file.name);
+    }
+</script>
+</body>
+</html>

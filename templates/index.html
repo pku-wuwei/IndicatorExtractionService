@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shannon.AI Info Extractor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/app.css">
+</head>
+<body class="box">
+<nav class="navbar navbar-light bg-faded">
+    <a class="navbar-brand" href="/" title="Shannon.AI">
+        <img class="navbar-img" src="../static/img/logo.png" alt="Shannon.AI Info Extractor">
+        <!-- <div class="navbar-title"></div> -->
+    </a>
+</nav>
+<div class="container-fluid">
+    <div class="main">
+        <form action="." method="post">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        <textarea name="input-text" id="input-text" rows="10"
+                                  placeholder="请输入您要抽取的文本">{{ context['input_text'] }}</textarea>
+                    </div>
+                </div>
+                <div class="">
+                </div>
+                <div class="col-sm">
+                    <table class="table table-hover info">
+                        <thead>
+                        <tr>
+                            <th scope="col">Label</th>
+                            <th scope="col">Content</th>
+                            <th scope="col">Confidence</th>
+                        </tr>
+                        </thead>
+                        {% if context %}
+                            <tbody>
+
+                            <tr>
+                                <th>召开公司</th>
+                                <td>{{ context['company'][0] }}</td>
+                                <td>{{ context['company'][1] }}</td>
+                            </tr>
+                            <tr>
+                                <th>召开日期</th>
+                                <td>{{ context['convoke_time'][0] }}</td>
+                                <td>{{ context['convoke_time'][1] }}</td>
+                            </tr>
+                            <tr>
+                                <th>召开届次</th>
+                                <td>{{ context['session_time'][0] }}</td>
+                                <td>{{ context['session_time'][1] }}</td>
+                            </tr>
+                            {% for bill in context['agreed_bills'] %}
+                            <tr>
+                                <th>{% if loop.index == 1 %}获通过的议案{% endif %}</th>
+                                <td>{{ bill[0] }}</td>
+                                <td>{{ bill[1] }}</td>
+                            </tr>
+                            {% endfor %}
+                            {% for bill in context['disagreed_bills'] %}
+                            <tr>
+                                <th>{% if loop.index == 1 %}未通过的议案{% endif %}</th>
+                                <td>{{ bill[0] }}</td>
+                                <td>{{ bill[1] }}</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        {% endif %}
+                    </table>
+                </div>
+            </div>
+            <button type="submit" value="submit" class="btn btn-submit">RUN >></button>
+        </form>
+    </div>
+</div>
+
+<script src="../static/js/jquery-3.1.1.slim.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+</body>
+</html>

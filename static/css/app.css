@@ -1,0 +1,52 @@
+.navbar {
+    margin: 0 1rem;
+    background-color: white;
+}
+
+.navbar-title {
+    display: inline-block;
+    padding-left: 0.5rem;
+    font-size: 24px;
+    vertical-align: -0.25rem;
+}
+
+.navbar-img {
+    height: 2.5rem;
+}
+
+.container-fluid {
+    padding-top: 2rem;
+    background-color: #f8f8f8;
+}
+
+.main {
+    padding: 0 1rem;
+}
+
+textarea {
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    resize: none;
+}
+
+#input-text:focus {
+    outline: none;
+    border-color: #45a8cc;
+}
+
+.btn-submit {
+    margin: 1rem 0;
+    width: 6rem;
+    color: #fff;
+    background-color: #45a8cc;
+    border-color: #45a8cc;
+}
+
+.info {
+    background-color: white;
+}
+
+.upload {
+    height: 20rem;
+}
